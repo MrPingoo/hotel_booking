@@ -100,14 +100,28 @@ class BookingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 	/**
 	 * action create
 	 *
-	 * @param \RGJL\HotelBooking\Domain\Model\Booking $newBooking
 	 * @return void
 	 */
-	public function createAction(\RGJL\HotelBooking\Domain\Model\Booking $newBooking) {
-		$date = new \DateTime($newBooking->getBeginDate().'12:00');
+	public function createAction() {
+
+		// Args
+		$args = $this->request->getArguments();
+
+		/** @var \TYPO3\CMS\Extbase\Object\ObjectManager objectManager */
+		$this->objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
+		/** @var \RGJL\HotelBooking\Domain\Model\Booking $newBooking */
+		$newBooking = $this->objectManager->get('RGJL\\HotelBooking\\Domain\\Model\\Booking');
+		$newBooking->setName($args['newBooking']['name']);
+		$newBooking->setPrice($args['newBooking']['price']);
+		$date = \DateTime::createFromFormat('d/m/Y H:s', $args['newBooking']['beginDate'] . ' 12:00');
 		$newBooking->setBeginDate($date->format('c'));
-		$date = new \DateTime($newBooking->getEndDate().'12:00');
+		$date = \DateTime::createFromFormat('d/m/Y H:s', $args['newBooking']['endDate'] . ' 12:00');
 		$newBooking->setEndDate($date->format('c'));
+
+		// Set rent
+		$rent = $this->rentRepository->findByUid($args['newBooking']['uidForeign']);
+		$newBooking->setUidForeign($rent);
+
 		$this->addFlashMessage('Résérvation validée', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
 		$this->bookingRepository->add($newBooking);
 		$this->redirect('show', 'Rent', 'HotelBooking', array( 'rent' => $newBooking->getUidForeign()));

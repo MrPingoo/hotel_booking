@@ -43,7 +43,7 @@
     <!-- Modal -->
     <div class="modal fade" id="modal-new-booking" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
-            <f:form action="create" name="newBooking" object="{newBooking}">
+            <f:form action="create" controller="Booking" name="newBooking" object="{newBooking}">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
@@ -78,7 +78,7 @@
                             </label>
                             <f:form.textfield id="price" class="form-control price" property="price"/>
                         </div>
-                        <f:form.hidden property="uidForeign"/>
+                        <f:form.hidden value="{rent.uid}" property="uidForeign"/>
                     </div>
                     <div class="modal-footer">
                         <f:form.submit class="btn btn-success"
