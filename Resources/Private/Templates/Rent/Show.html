@@ -31,7 +31,7 @@
         eventLimit: true, // allow "more" link when too many events
         events: settings,
         dayClick: function(date, event) {
-          $('#modal-new-booking').find('.modal-body input#beginDate').val(date);
+          $('#modal-new-booking').find('.modal-body input#beginDate').val(moment(date).format("DD/MM/YYYY"));
           $('#modal-new-booking').modal('show');
         }
       });
@@ -64,13 +64,13 @@
                             <label for="beginDate">
                                 <f:translate key="tx_hotelbooking_domain_model_booking.begin_date"/>
                             </label>
-                            <f:form.textfield id="beginDate" class="form-control datepicker" property="endDate"/>
+                            <f:form.textfield id="beginDate" class="form-control datepicker" property="beginDate"/>
                         </div>
                         <div class="form-group">
                             <label for="endDate">
                                 <f:translate key="tx_hotelbooking_domain_model_booking.end_date"/>
                             </label>
-                            <f:form.textfield id="endDate" class="form-control datepicker" property="beginDate"/>
+                            <f:form.textfield id="endDate" class="form-control datepicker" property="endDate"/>
                         </div>
                         <div class="form-group">
                             <label for="price">
