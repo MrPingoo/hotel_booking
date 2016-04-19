@@ -1,0 +1,17 @@
+
+<label for="beginDate">
+	<f:translate key="tx_hotelbooking_domain_model_price.begin_date" />
+</label><br />
+	<f:form.textfield property="beginDate"  value="{price.beginDate->f:format.date()}" /><br />
+<label for="endDate">
+	<f:translate key="tx_hotelbooking_domain_model_price.end_date" />
+</label><br />
+	<f:form.textfield property="endDate"  value="{price.endDate->f:format.date()}" /><br />
+<label for="dayPrice">
+	<f:translate key="tx_hotelbooking_domain_model_price.day_price" />
+</label><br />
+	<f:form.textfield property="dayPrice" /><br />
+<label for="weekPrice">
+	<f:translate key="tx_hotelbooking_domain_model_price.week_price" />
+</label><br />
+	<f:form.textfield property="weekPrice" /><br />

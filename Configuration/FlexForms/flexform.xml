@@ -1,0 +1,26 @@
+<T3DataStructure>
+	<meta>
+		<langDisable>1</langDisable>
+	</meta>
+	<sheets>
+		<sGENERAL>
+			<ROOT>
+				<TCEforms>
+					<sheetTitle>LLL:EXT:cms/locallang_tca.xlf:sys_template</sheetTitle>
+				</TCEforms>
+				<type>array</type>
+                <el>
+                    <settings.flexform_rent>
+                        <TCEforms>
+                            <label>LLL:EXT:cms/locallang_tca.xlf:sys_template</label>
+                            <config>
+                                <type>select</type>
+                                <itemsProcFunc>RGJL\HotelBooking\Controller\RentController->getOptionsForFlexform</itemsProcFunc>
+                            </config>
+                        </TCEforms>
+                    </settings.flexform_rent>
+                </el>
+			</ROOT>
+		</sGENERAL>
+	</sheets>
+</T3DataStructure>

@@ -1,0 +1,81 @@
+
+plugin.tx_hotelbooking {
+	view {
+		templateRootPath = {$plugin.tx_hotelbooking.view.templateRootPath}
+		partialRootPath = {$plugin.tx_hotelbooking.view.partialRootPath}
+		layoutRootPath = {$plugin.tx_hotelbooking.view.layoutRootPath}
+	}
+	persistence {
+		storagePid = {$plugin.tx_hotelbooking.persistence.storagePid}
+	}
+	features {
+		# uncomment the following line to enable the new Property Mapper.
+		# rewrittenPropertyMapper = 1
+	}
+}
+
+page {
+	includeJSFooterlibs {
+		underscore = https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js
+		underscore.external = 1
+		moment = https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment.min.js
+		moment.external = 1
+		moment-fr = https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.11.2/locale/fr.js
+		moment-fr.external = 1
+		clndr = EXT:hotel_booking/Resources/Public/javascript/clndr.min.js
+		hotelBookingClndr = EXT:hotel_booking/Resources/Public/javascript/hotel_booking_clndr.js
+	}
+	includeCSS {
+		clndr = EXT:hotel_booking/Resources/Public/css/clndr.css
+	}
+	inlineSettings {
+		locale = en
+	}
+}
+
+
+plugin.tx_hotelbooking._CSS_DEFAULT_STYLE (
+	textarea.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	input.f3-form-error {
+		background-color:#FF9F9F;
+		border: 1px #FF0000 solid;
+	}
+
+	.tx-hotel-booking table {
+		border-collapse:separate;
+		border-spacing:10px;
+	}
+
+	.tx-hotel-booking table th {
+		font-weight:bold;
+	}
+
+	.tx-hotel-booking table td {
+		vertical-align:top;
+	}
+
+	.typo3-messages .message-error {
+		color:red;
+	}
+
+	.typo3-messages .message-ok {
+		color:green;
+	}
+
+)
+
+ # Module configuration
+module.tx_hotelbooking {
+	persistence {
+		storagePid = {$module.tx_hotelbooking.persistence.storagePid}
+	}
+	view {
+		templateRootPath = {$module.tx_hotelbooking.view.templateRootPath}
+		partialRootPath = {$module.tx_hotelbooking.view.partialRootPath}
+		layoutRootPath = {$module.tx_hotelbooking.view.layoutRootPath}
+	}
+}

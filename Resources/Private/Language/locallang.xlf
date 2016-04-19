@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-10-10T15:57:43Z" product-name="hotel_booking">
+		<header/>
+		<body>
+			<trans-unit id="tx_hotelbooking_domain_model_rent">
+				<source>Rent</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_rent.name">
+				<source>Name</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_rent.house_work">
+				<source>House Work</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_rent.edit">
+                <source>Edit</source>
+            </trans-unit>
+            <trans-unit id="tx_hotelbooking_domain_model_rent.delete">
+                <source>Delete</source>
+            </trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_price">
+				<source>Price</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_price.begin_date">
+				<source>Arrival</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_price.end_date">
+				<source>Departure</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_price.day_price">
+				<source>Day Price</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_price.week_price">
+				<source>Week Price</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_booking">
+				<source>Booking</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_booking.new">
+                <source>New booking</source>
+            </trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_booking.name">
+                <source>In the name of</source>
+            </trans-unit>
+            <trans-unit id="tx_hotelbooking_domain_model_booking.begin_date">
+				<source>Arrival date</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_booking.end_date">
+				<source>Departure date</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_booking.price">
+				<source>Booking Price</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_booking.submit">
+                <source>Save</source>
+            </trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_user">
+				<source>User</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_user.first_name">
+				<source>First Name</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_user.last_name">
+				<source>Last Name</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_user.email">
+				<source>Email</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_user.phone">
+				<source>Phone</source>
+			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_user.address">
+				<source>Address</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

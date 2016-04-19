@@ -1,0 +1,60 @@
+<f:layout name="Frontend" />
+
+This Template is responsible for displaying a single view for a domain object
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+Resources:
+Private:
+Templates:
+Show.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+  <div id="mini-clndr">
+    <script id="mini-clndr-template" type="text/template">
+
+      <div class="controls">
+        <div class="clndr-previous-button">&lsaquo;</div><div class="month"><%= month %></div><div class="clndr-next-button">&rsaquo;</div>
+      </div>
+
+      <div class="days-container">
+        <div class="days">
+          <div class="headers">
+            <% _.each(daysOfTheWeek, function(day) { %><div class="day-header"><%= day %></div><% }); %>
+          </div>
+          <% _.each(days, function(day) { %><div class="<%= day.classes %>" id="<%= day.id %>"><%= day.day %></div><% }); %>
+        </div>
+        <div class="events">
+          <div class="headers">
+            <div class="x-button">x</div>
+            <div class="event-header">EVENTS</div>
+          </div>
+          <div class="events-list">
+            <% _.each(eventsThisMonth, function(event) { %>
+            <div class="event">
+              <a href="<%= event.url %>"><%= moment(event.date).format('MMMM Do') %>: <%= event.title %></a>
+            </div>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+
+    </script>
+  </div>
+
+
+  <script>
+    var eventArray = [
+      <f:for each="{bookings}" as="booking"> <![CDATA[{
+          title: '',
+          startDate: ']]>{booking.beginDate}<![CDATA[',
+          endDate: ']]>{booking.endDate}<![CDATA['
+        },]]>
+      </f:for>
+    ];
+  </script>
+
+
+</f:section>

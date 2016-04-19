@@ -1,0 +1,35 @@
+
+<table class="tx-hotel-booking" >
+	<tr>
+		<td>
+			<f:translate key="tx_hotelbooking_domain_model_price.begin_date" />
+		</td>
+		<td>
+		{price.beginDate -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_hotelbooking_domain_model_price.end_date" />
+		</td>
+		<td>
+		{price.endDate -> f:format.date()}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_hotelbooking_domain_model_price.day_price" />
+		</td>
+		<td>
+		{price.dayPrice}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<f:translate key="tx_hotelbooking_domain_model_price.week_price" />
+		</td>
+		<td>
+		{price.weekPrice}
+		</td>
+	</tr>
+</table>

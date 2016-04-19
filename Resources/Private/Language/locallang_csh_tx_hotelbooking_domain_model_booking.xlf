@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2015-10-10T15:57:43Z" product-name="hotel_booking">
+		<header/>
+		<body>
+			<trans-unit id="begin_date.description">
+				<source>Date de début</source>
+			</trans-unit>
+			<trans-unit id="end_date.description">
+				<source>Date de fin</source>
+			</trans-unit>
+			<trans-unit id="price.description">
+				<source>price</source>
+			</trans-unit>
+			<trans-unit id="uid_foreign.description">
+				<source>uidForeign</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

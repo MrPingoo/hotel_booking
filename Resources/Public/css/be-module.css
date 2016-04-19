@@ -1,0 +1,81 @@
+h1 {
+	font-size: 25px;
+}
+a.btn {
+	border-radius: 0;
+	border: none;
+}
+.btn.btn-primary {
+	background-color: #1b191c;
+	color: #eee;
+}
+.btn.btn-success {
+	background-color: #EAAF22;
+}
+#calendar {
+	background-color: #1b191c;
+	padding: 20px;
+}
+#calendar table, #calendar h2 {
+	color: #eee;
+}
+.fc td, .fc th {
+	border-width: 0;
+}
+.fc-row.fc-week.fc-widget-content.fc-rigid {
+	border-bottom: 2px solid #000;
+}
+.fc-center h2 {
+	text-transform: uppercase;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+.fc-toolbar button {
+	border-radius: 0 !important;
+	border: 0;
+}
+.fc-content-skeleton {
+	padding-top: 5px;
+}
+.fc-content-skeleton thead td {
+	padding-left: 10px !important;
+}
+.fc-unthemed .fc-today {
+	background-color: #EAAF22;
+	font-weight: bold;
+}
+.fc-state-default {
+	background-image: none;
+	background-color: #444444;
+	border: none;
+	box-shadow: none;
+	color: #aaaaaa;
+	text-shadow: none;
+}
+.fc-state-hover, .fc-state-active {
+	background-color: #555555;
+}
+.fc-ltr .fc-basic-view .fc-day-number, .fc th {
+	text-align: left;
+}
+.tx_hotelbooking a {
+    display: block;
+}
+.table-condensed>tbody>tr>td.name,
+.table-condensed>tbody>tr>td.housework {
+    padding: 0;
+}
+.tx_hotelbooking a:hover {
+    text-decoration: none;
+}
+.tx_hotelbooking .name a,
+.tx_hotelbooking .housework a {
+    line-height: 1.8em;
+    color: #000;
+    padding: 5px;
+}
+.tx_hotelbooking .name a:hover,
+.tx_hotelbooking .housework a:hover {
+    background: #CCCCCC;
+}

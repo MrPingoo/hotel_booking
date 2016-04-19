@@ -1,0 +1,62 @@
+
+<f:layout name="Default" />
+
+This Template is responsible for creating a table of domain objects.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        List.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+
+<f:flashMessages renderMode="div" />
+
+<table class="table table-condensed tx_hotelbooking">
+	<h1>Chambres</h1>
+	<thead>
+		<tr>
+			<th>
+                <f:translate key="tx_hotelbooking_domain_model_rent.name" />
+            </th>
+			<th>
+                <f:translate key="tx_hotelbooking_domain_model_rent.house_work" />
+            </th>
+			<th></th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		<f:for each="{rents}" as="rent">
+			<tr>
+				<td class="name">
+                    <f:link.action action="show" arguments="{rent : rent}">
+                        {rent.name}
+                    </f:link.action>
+                </td>
+				<td class="housework">
+                    <f:link.action action="show" arguments="{rent : rent}">
+                        {rent.houseWork}
+                    </f:link.action>
+                </td>
+				<td>
+                    <f:link.action action="edit" class="btn btn-warning" arguments="{rent : rent}">
+                        <f:translate key="tx_hotelbooking_domain_model_rent.edit" />
+                    </f:link.action>
+                </td>
+				<td>
+                    <f:link.action action="delete" class="btn btn-danger" arguments="{rent : rent}">
+                        <f:translate key="tx_hotelbooking_domain_model_rent.delete" />
+                    </f:link.action>
+                </td>
+			</tr>
+		</f:for>
+	</tbody>
+</table>
+
+<f:link.action action="new" class="btn btn-success">Nouvelle chambre</f:link.action>
+</f:section>

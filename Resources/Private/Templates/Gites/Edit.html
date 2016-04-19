@@ -1,0 +1,26 @@
+
+<f:layout name="Default" />
+
+This template displays a EDIT form for the current domain object.
+
+If you modify this template, do not forget to change the overwrite settings
+in /Configuration/ExtensionBuilder/settings.yaml:
+  Resources:
+    Private:
+      Templates:
+        Edit.html: keep
+
+Otherwise your changes will be overwritten the next time you save the extension in the extension builder
+
+<f:section name="main">
+<h1>Edit Gites</h1>
+
+<f:flashMessages renderMode="div" />
+
+<f:render partial="FormErrors" arguments="{object:Gites}" />
+
+<f:form action="update" name="gites" object="{gites}" >
+<f:render partial="Gites/FormFields" arguments="{gites:gites}" />
+	<f:form.submit value="Save" />
+</f:form>
+</f:section>
