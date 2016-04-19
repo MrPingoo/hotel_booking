@@ -41,6 +41,13 @@ class Booking extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $beginDate = NULL;
 
 	/**
+	 * name
+	 *
+	 * @var string
+	 */
+	protected $name = NULL;
+
+	/**
 	 * endDate
 	 *
 	 * @var string
@@ -136,5 +143,23 @@ class Booking extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setUidForeign(\RGJL\HotelBooking\Domain\Model\Rent $uidForeign) {
 		$this->uidForeign = $uidForeign;
 	}
+
+	/**
+	 * @return string
+	 */
+	public function getName()
+	{
+		return $this->name;
+	}
+
+	/**
+	 * @param string $name
+	 */
+	public function setName($name)
+	{
+		$this->name = $name;
+	}
+
+
 
 }
