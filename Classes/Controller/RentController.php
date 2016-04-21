@@ -216,4 +216,30 @@ class RentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 
 	}
 
+	/**
+	 * action all
+	 *
+	 * @return void
+	 */
+	public function allAction() {
+		$bookings = $this->bookingRepository->findAll();
+		$rents = $this->rentRepository->findAll();
+		$this->view->assign('rents', $rents);
+		$this->view->assign('bookings', $bookings);
+		$json = array();
+		$i = 0;
+		foreach ($bookings as $booking) {
+			// Uri of bookings
+			$uri = $this->createUri('show',array('booking' => $booking), 'Booking', NULL, NULL,  intval($GLOBALS['TSFE']->id));
+			$json[$i]['url'] = $uri;
+			$date = new \DateTime($booking->getBeginDate());
+			$json[$i]['start'] = $date->format('Y-m-d').'T12:00:00';
+			$date = new \DateTime($booking->getEndDate());
+			$json[$i]['end'] = $date->format('Y-m-d').'T12:00:00';
+			$i++;
+		}
+		$this->view->assign('json', json_encode($json));
+
+	}
+
 }
