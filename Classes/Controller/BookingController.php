@@ -111,7 +111,7 @@ class BookingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$this->objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
 		/** @var \RGJL\HotelBooking\Domain\Model\Booking $newBooking */
 		$newBooking = $this->objectManager->get('RGJL\\HotelBooking\\Domain\\Model\\Booking');
-		$newBooking->setName($args['newBooking']['name']);
+		$newBooking->setTitle($args['newBooking']['title']);
 		$newBooking->setPrice($args['newBooking']['price']);
 		$date = \DateTime::createFromFormat('d/m/Y H:s', $args['newBooking']['beginDate'] . ' 12:00');
 		$newBooking->setBeginDate($date->format('c'));
@@ -124,6 +124,7 @@ class BookingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
 		$this->addFlashMessage('Résérvation validée', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
 		$this->bookingRepository->add($newBooking);
+
 		$this->redirect('show', 'Rent', 'HotelBooking', array( 'rent' => $newBooking->getUidForeign()));
 	}
 

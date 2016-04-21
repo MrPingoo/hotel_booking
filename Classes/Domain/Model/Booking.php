@@ -41,11 +41,11 @@ class Booking extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $beginDate = NULL;
 
 	/**
-	 * name
+	 * title
 	 *
 	 * @var string
 	 */
-	protected $name = NULL;
+	protected $title = NULL;
 
 	/**
 	 * endDate
@@ -147,19 +147,18 @@ class Booking extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	/**
 	 * @return string
 	 */
-	public function getName()
+	public function getTitle()
 	{
-		return $this->name;
+		return $this->title;
 	}
 
 	/**
-	 * @param string $name
+	 * @param string $title
 	 */
-	public function setName($name)
+	public function setTitle($title)
 	{
-		$this->name = $name;
+		$this->title = $title;
 	}
-
 
 
 }

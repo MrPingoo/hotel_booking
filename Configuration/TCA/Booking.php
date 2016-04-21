@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_hotelbooking_domain_model_booking'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_hotelbooking_domain_model_booking']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, begin_date, end_date, price, uid_foreign',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, begin_date, end_date, price, title, uid_foreign',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, begin_date, end_date, price, uid_foreign, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, begin_date, end_date, title, price, uid_foreign, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -56,7 +56,7 @@ $GLOBALS['TCA']['tx_hotelbooking_domain_model_booking'] = array(
 				'max' => 255,
 			)
 		),
-	
+
 		'hidden' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:lang/locallang_general.xlf:LGL.hidden',
@@ -128,6 +128,15 @@ $GLOBALS['TCA']['tx_hotelbooking_domain_model_booking'] = array(
 				'eval' => 'double2'
 			)
 		),
+		'title' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:hotel_booking/Resources/Private/Language/locallang_db.xlf:tx_hotelbooking_domain_model_booking.title',
+			'config' => array(
+				'type' => 'input',
+				'size' => 30,
+				'eval' => 'trim'
+			),
+		),
 		'uid_foreign' => array(
 			'exclude' => 1,
 			'label' => 'LLL:EXT:hotel_booking/Resources/Private/Language/locallang_db.xlf:tx_hotelbooking_domain_model_booking.uid_foreign',
@@ -145,6 +154,6 @@ $GLOBALS['TCA']['tx_hotelbooking_domain_model_booking'] = array(
 				),
 			),
 		),
-		
+
 	),
 );

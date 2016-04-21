@@ -10,7 +10,7 @@ plugin.tx_hotelbooking {
 	}
 	persistence {
 		# cat=plugin.tx_hotelbooking//a; type=string; label=Default storage PID
-		storagePid = 11
+		storagePid = 41
 	}
 }
 
@@ -25,6 +25,6 @@ module.tx_hotelbooking {
 	}
 	persistence {
 		# cat=module.tx_hotelbooking//a; type=string; label=Default storage PID
-		storagePid = 11
+		storagePid = 41
 	}
 }
