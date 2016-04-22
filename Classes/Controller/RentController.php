@@ -228,16 +228,22 @@ class RentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 		$this->view->assign('bookings', $bookings);
 		$json = array();
 		$i = 0;
-		foreach ($bookings as $booking) {
-			// Uri of bookings
-			$uri = $this->createUri('show',array('booking' => $booking), 'Booking', NULL, NULL,  intval($GLOBALS['TSFE']->id));
-			$json[$i]['url'] = $uri;
-			$date = new \DateTime($booking->getBeginDate());
-			$json[$i]['start'] = $date->format('Y-m-d').'T12:00:00';
-			$date = new \DateTime($booking->getEndDate());
-			$json[$i]['end'] = $date->format('Y-m-d').'T12:00:00';
-			$i++;
+		/** @var \RGJL\HotelBooking\Domain\Model\Rent $rent */
+		foreach ($rents as $rent){
+			$bookings = $this->bookingRepository->findByUidForeign($rent->getUid());
+			foreach ($bookings as $booking) {
+				// Uri of bookings
+				$uri = $this->createUri('show',array('booking' => $booking), 'Booking', NULL, NULL,  intval($GLOBALS['TSFE']->id));
+				$json[$i]['url'] = $uri;
+				$date = new \DateTime($booking->getBeginDate());
+				$json[$i]['title'] = $rent->getName();
+				$json[$i]['start'] = $date->format('Y-m-d').'T12:00:00';
+				$date = new \DateTime($booking->getEndDate());
+				$json[$i]['end'] = $date->format('Y-m-d').'T12:00:00';
+				$i++;
+			}
 		}
+
 		$this->view->assign('json', json_encode($json));
 
 	}

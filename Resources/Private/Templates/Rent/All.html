@@ -1,7 +1,28 @@
 <f:layout name="Default" />
 
 <f:section name="main">
-    <f:debug>{_all}</f:debug>
 
-    TEST
+
+    <div id='calendar' style="margin-top: 60px;"></div>
+
+    <script type="text/javascript">
+
+
+        $(document).ready(function(){/*<![CDATA[*/
+            /*]]>*/var allSettings = '{json->f:format.htmlentitiesDecode(keepQuotes: 0)}';
+            /*<![CDATA[*/
+            /*]]>*/var settings = $.parseJSON(allSettings);
+
+            $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'month,basicWeek,basicDay'
+                },
+                lang: 'fr',
+                editable: true,
+                eventLimit: true, // allow "more" link when too many events
+                events: settings,
+            });});/*<![CDATA[*/
+    /*]]>*/</script>
 </f:section>
