@@ -20,7 +20,7 @@ if (TYPO3_MODE === 'BE') {
 		'booking',	// Submodule key
 		'',						// Position
 		array(
-			'Rent' => 'list, show, new, create, edit, update, delete, all','Price' => 'list, show, new, create, edit, update, delete','Booking' => 'list, listByRent, show, new, create, edit, update, delete','User' => 'list, show, new, create, edit, update, delete',
+			'Rent' => 'all, list, show, new, create, edit, update, delete','Price' => 'list, show, new, create, edit, update, delete','Booking' => 'list, listByRent, show, new, create, edit, update, delete','User' => 'list, show, new, create, edit, update, delete',
 		),
 	/* JL 20151010
 		array(
