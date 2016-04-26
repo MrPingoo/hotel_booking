@@ -7,6 +7,7 @@ CREATE TABLE tx_hotelbooking_domain_model_rent (
 	pid int(11) DEFAULT '0' NOT NULL,
 
 	name varchar(255) DEFAULT '' NOT NULL,
+	color varchar(7) DEFAULT '' NOT NULL,
 	house_work double(11,2) DEFAULT '0.00' NOT NULL,
 
 	tstamp int(11) unsigned DEFAULT '0' NOT NULL,

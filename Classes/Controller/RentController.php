@@ -107,6 +107,7 @@ class RentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 			$json[$i]['start'] = $date->format('Y-m-d').'T12:00:00';
 			$date = new \DateTime($booking->getEndDate());
 			$json[$i]['end'] = $date->format('Y-m-d').'T12:00:00';
+			$json[$i]['color'] = $rent->getColor();
 			$i++;
 		}
 		$this->view->assign('json', json_encode($json));
@@ -240,6 +241,7 @@ class RentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 				$json[$i]['start'] = $date->format('Y-m-d').'T12:00:00';
 				$date = new \DateTime($booking->getEndDate());
 				$json[$i]['end'] = $date->format('Y-m-d').'T12:00:00';
+				$json[$i]['color'] = $rent->getColor();
 				$i++;
 			}
 		}

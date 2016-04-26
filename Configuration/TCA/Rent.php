@@ -6,10 +6,10 @@ if (!defined ('TYPO3_MODE')) {
 $GLOBALS['TCA']['tx_hotelbooking_domain_model_rent'] = array(
 	'ctrl' => $GLOBALS['TCA']['tx_hotelbooking_domain_model_rent']['ctrl'],
 	'interface' => array(
-		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, house_work',
+		'showRecordFieldList' => 'sys_language_uid, l10n_parent, l10n_diffsource, hidden, name, color, house_work',
 	),
 	'types' => array(
-		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, house_work, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
+		'1' => array('showitem' => 'sys_language_uid;;;;1-1-1, l10n_parent, l10n_diffsource, hidden;;1, name, color, house_work, --div--;LLL:EXT:cms/locallang_ttc.xlf:tabs.access, starttime, endtime'),
 	),
 	'palettes' => array(
 		'1' => array('showitem' => ''),
@@ -105,6 +105,25 @@ $GLOBALS['TCA']['tx_hotelbooking_domain_model_rent'] = array(
 				'size' => 30,
 				'eval' => 'trim'
 			),
+		),
+		'color' => array(
+			'exclude' => 1,
+			'label' => 'LLL:EXT:hotel_booking/Resources/Private/Language/locallang_db.xlf:tx_hotelbooking_domain_model_rent.color',
+			'config' => array(
+				'type' => 'input',
+				'size' => 10,
+				'eval' => 'trim',
+				'wizards' => array(
+					'colorChoice' => array(
+						'type' => 'colorbox',
+						'title' => 'LLL:EXT:hotel_booking/Resources/Private/Language/locallang_db.xlf:tx_hotelbooking_domain_model_rent.colorPick',
+						'module' => array(
+							'name' => 'wizard_colorpicker',
+						),
+						'JSopenParams' => 'height=600,width=380,status=0,menubar=0,scrollbars=1',
+					)
+				)
+			)
 		),
 		'house_work' => array(
 			'exclude' => 1,

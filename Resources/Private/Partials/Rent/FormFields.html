@@ -1,8 +1,18 @@
-
+{namespace flux=FluidTYPO3\Flux\ViewHelpers}
 <label for="name">
 	<f:translate key="tx_hotelbooking_domain_model_rent.name" />
 </label><br />
 	<f:form.textfield property="name" /><br />
+
+<label for="color">
+	<f:translate key="tx_hotelbooking_domain_model_rent.color" />
+</label><br />
+<f:form.textfield property="color" /><br />
+<f:comment>
+<flux:wizard.colorPicker label="'Choose color'" dim="'20x20'" width="123" height="123" exampleImg="'EXT:flux/Resources/Public/Icons/ColorWheel.png'">
+</flux:wizard.colorPicker>
+<br />
+</f:comment>
 <label for="houseWork">
 	<f:translate key="tx_hotelbooking_domain_model_rent.house_work" />
 </label><br />

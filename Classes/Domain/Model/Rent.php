@@ -47,6 +47,13 @@ class Rent extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	protected $houseWork = 0.0;
 
 	/**
+	 * color
+	 *
+	 * @var string
+	 */
+	protected $color = '';
+
+	/**
 	 * Returns the name
 	 *
 	 * @return string $name
@@ -83,5 +90,22 @@ class Rent extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity {
 	public function setHouseWork($houseWork) {
 		$this->houseWork = $houseWork;
 	}
+
+	/**
+	 * @return string
+	 */
+	public function getColor()
+	{
+		return $this->color;
+	}
+
+	/**
+	 * @param string $color
+	 */
+	public function setColor($color)
+	{
+		$this->color = $color;
+	}
+
 
 }

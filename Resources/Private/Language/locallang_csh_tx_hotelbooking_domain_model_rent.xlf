@@ -6,6 +6,9 @@
 			<trans-unit id="name.description">
 				<source>name</source>
 			</trans-unit>
+			<trans-unit id="color.description">
+                <source>color</source>
+            </trans-unit>
 			<trans-unit id="house_work.description">
 				<source>houseWork</source>
 			</trans-unit>

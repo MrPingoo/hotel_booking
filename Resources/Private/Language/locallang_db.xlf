@@ -9,6 +9,12 @@
 			<trans-unit id="tx_hotelbooking_domain_model_rent.name">
 				<source>Name</source>
 			</trans-unit>
+			<trans-unit id="tx_hotelbooking_domain_model_rent.color">
+                <source>Color</source>
+            </trans-unit>
+            <trans-unit id="tx_hotelbooking_domain_model_rent.colorPick">
+                <source>colorPick</source>
+            </trans-unit>
 			<trans-unit id="tx_hotelbooking_domain_model_rent.house_work">
 				<source>House Work</source>
 			</trans-unit>
