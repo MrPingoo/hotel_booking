@@ -27,11 +27,17 @@ namespace RGJL\HotelBooking\Domain\Repository;
  *
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
+use TYPO3\CMS\Extbase\Utility\DebuggerUtility;
 
 /**
  * The repository for Bookings
  */
 class BookingRepository extends \TYPO3\CMS\Extbase\Persistence\Repository {
 
+    public function getBookingBetweenDate($begin, $end){
+        $query = $this->createQuery();
+        $query->statement('SELECT * FROM tx_hotelbooking_domain_model_booking WHERE ( begin_date BETWEEN \''.$begin.'\' AND \''.$end.'\' ) OR ( end_date BETWEEN \''.$begin.'\' AND \''.$end.'\' )');
+        return $query->execute()->toArray();
+    }
 	
 }

@@ -124,14 +124,32 @@ class BookingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 		$rent = $this->rentRepository->findByUid($args['newBooking']['uidForeign']);
 		$newBooking->setUidForeign($rent);
 
-		$this->addFlashMessage('Résérvation validée', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
-		$this->bookingRepository->add($newBooking);
+		if ($this->checkIfNotBooked($rent, $newBooking)){
+			$this->addFlashMessage('Résérvation validée', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
+			$this->bookingRepository->add($newBooking);
+		}else{
+			$this->addFlashMessage('Résérvation en doublon', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::ERROR);
+		}
 
 		if (isset($args['newBooking']['rent'])){
 			$this->redirect('all', 'Rent', 'HotelBooking');
 		}
 
 		$this->redirect('show', 'Rent', 'HotelBooking', array( 'rent' => $newBooking->getUidForeign()));
+	}
+
+	/**
+	 * @param $rent \RGJL\HotelBooking\Domain\Model\Rent
+	 * @param $booking \RGJL\HotelBooking\Domain\Model\Booking
+	 * @return bool
+	 */
+	public function checkIfNotBooked($rent, $booking){
+		$result = false;
+		$bookings = $this->bookingRepository->getBookingBetweenDate($booking->getBeginDate(), $booking->getEndDate());
+		if (count($bookings) == 0){
+			$result = true;
+		}
+		return $result;
 	}
 
 	/**
