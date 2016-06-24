@@ -106,7 +106,9 @@ class BookingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
 		// Args
 		$args = $this->request->getArguments();
-
+		if (isset($args['newBooking']['rent'])){
+			$args['newBooking']['uidForeign'] = $args['newBooking']['rent'];
+		}
 		/** @var \TYPO3\CMS\Extbase\Object\ObjectManager objectManager */
 		$this->objectManager = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Extbase\\Object\\ObjectManager');
 		/** @var \RGJL\HotelBooking\Domain\Model\Booking $newBooking */
@@ -124,6 +126,10 @@ class BookingController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionControll
 
 		$this->addFlashMessage('Résérvation validée', '', \TYPO3\CMS\Core\Messaging\AbstractMessage::OK);
 		$this->bookingRepository->add($newBooking);
+
+		if (isset($args['newBooking']['rent'])){
+			$this->redirect('all', 'Rent', 'HotelBooking');
+		}
 
 		$this->redirect('show', 'Rent', 'HotelBooking', array( 'rent' => $newBooking->getUidForeign()));
 	}

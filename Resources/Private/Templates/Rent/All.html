@@ -25,8 +25,66 @@
                 editable: true,
                 eventLimit: true, // allow "more" link when too many events
                 events: settings,
+                dayClick: function(date, event) {
+                    $('#modal-new-booking').find('.modal-body input#beginDate').val(moment(date).format("DD/MM/YYYY"));
+                    $('#modal-new-booking').modal('show');
+                }
             });});/*<![CDATA[*/
     /*]]>*/</script>
 
 
+    <!-- Modal -->
+    <div class="modal fade" id="modal-new-booking" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <f:form action="create" controller="Booking" name="newBooking" object="{newBooking}">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="myModalLabel">
+                            <f:translate key="tx_hotelbooking_domain_model_booking.new"/>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <f:render partial="FormErrors" arguments="{object:Booking}"/>
+                        <div class="form-group">
+                            <label for="name">
+                                <f:translate key="tx_hotelbooking_domain_model_rent.name"/>
+                            </label>
+                            <f:form.select property="rent" options="{rentsSelect}" />
+                        </div>
+                        <div class="form-group">
+                            <label for="name">
+                                <f:translate key="tx_hotelbooking_domain_model_booking.name"/>
+                            </label>
+                            <f:form.textfield id="name" class="form-control name" property="title"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="beginDate">
+                                <f:translate key="tx_hotelbooking_domain_model_booking.begin_date"/>
+                            </label>
+                            <f:form.textfield id="beginDate" class="form-control datepicker" property="beginDate"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="endDate">
+                                <f:translate key="tx_hotelbooking_domain_model_booking.end_date"/>
+                            </label>
+                            <f:form.textfield id="endDate" class="form-control datepicker" property="endDate"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">
+                                <f:translate key="tx_hotelbooking_domain_model_booking.price"/>
+                            </label>
+                            <f:form.textfield id="price" class="form-control price" property="price"/>
+                        </div>
+                        <f:form.hidden value="{rent.uid}" property="uidForeign"/>
+                    </div>
+                    <div class="modal-footer">
+                        <f:form.submit class="btn btn-success"
+                                       value="{f:translate(key:'tx_hotelbooking_domain_model_booking.submit')}"/>
+                    </div>
+                </div>
+            </f:form>
+        </div>
+    </div>
 </f:section>

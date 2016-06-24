@@ -228,6 +228,8 @@ class RentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 		$this->view->assign('rents', $rents);
 		$this->view->assign('bookings', $bookings);
 		$json = array();
+		// Array for rents select
+		$rentsSelect = array();
 		$i = 0;
 		/** @var \RGJL\HotelBooking\Domain\Model\Rent $rent */
 		foreach ($rents as $rent){
@@ -242,11 +244,13 @@ class RentController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController 
 				$date = new \DateTime($booking->getEndDate());
 				$json[$i]['end'] = $date->format('Y-m-d').'T12:00:00';
 				$json[$i]['color'] = $rent->getColor();
+				$rentsSelect[$rent->getUid()] = $rent->getName();
 				$i++;
 			}
 		}
 
 		$this->view->assign('json', json_encode($json));
+		$this->view->assign('rentsSelect', $rentsSelect);
 
 	}
 
